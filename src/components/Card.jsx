@@ -1,13 +1,13 @@
-import React from 'react'
+import { Link } from 'react-router-dom';
 
-const Card = ({data}) => {
+const Card = ({ data }) => {
   return (
-    <div className='card'>
-        <h3>{data.name}</h3>
-        <p>{data.tagline}</p>
-        <img src={data.image_url} alt="beer-detail" />
+    <div className="card">
+      <h3>{data.strDrink}</h3>
+      <img src={data.strDrinkThumb} alt="cocktail" />
+      <Link to={`/cocktail/${data.idDrink}`}>Ver detalles</Link>
     </div>
-  )
-}
+  );
+};
 
-export default Card
+export default Card;
