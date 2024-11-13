@@ -1,27 +1,26 @@
-import React, { useEffect, useState } from 'react'
-import Card from "./components/Card"
+import React, { useEffect, useState } from 'react';
+import Card from './components/Card';
 
 const Home = () => {
-  const [beers, setBeers] = useState([])
+  const [cocktails, setCocktails] = useState([]);
 
-  const getBeers = async()=>{
-    const res = await fetch("https://api.punkapi.com/v2/beers")
-    const data = await res.json()
-    setBeers(data)
-  }
+  const getCocktails = async () => {
+    const res = await fetch('https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Alcoholic');
+    const data = await res.json();
+    setCocktails(data.drinks);
+  };
 
-  useEffect(()=>{
-    getBeers()
-  })
+  useEffect(() => {
+    getCocktails();
+  }, []);
 
   return (
-    <div className='grid'>
-        {beers.length 
-           ? beers.map(beer => (<Card data={beer} />))
-           : null
-        }
+    <div className="grid">
+      {cocktails.length
+        ? cocktails.map((cocktail) => <Card key={cocktail.idDrink} data={cocktail} />)
+        : null}
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
