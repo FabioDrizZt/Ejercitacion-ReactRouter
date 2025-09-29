@@ -1,11 +1,12 @@
-import { Link } from 'react-router-dom';
+// TODO: Importar Link de react-router-dom
 
 const Card = ({ data }) => {
   return (
     <div className="card">
-      <h3>{data.strDrink}</h3>
-      <img src={data.strDrinkThumb} alt="cocktail" />
-      <Link to={`/cocktail/${data.idDrink}`}>Ver detalles</Link>
+      <h3>{data.strMeal}</h3>
+      <img src={data.strMealThumb} alt="receta" />
+      {/* TODO: Convertir esto en un Link */}
+      <span style={{cursor: 'pointer', color: '#3b82f6'}}>Ver receta completa</span>
     </div>
   );
 };
